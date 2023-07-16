@@ -74,4 +74,21 @@ left.addEventListener('click',()=>{
    
   });
 
+const loop = () => {
+    slideNumber < totalPictures ? nextSlide() : getFirstSlide();
+    changeColor();
+  }
+
+  let rotation;
+  const autoplay = () =>{
+     rotation = setInterval(loop,2500);
+  }
+  
+  autoplay();
+  const container = document.querySelector('.top');
+  container.addEventListener('mouseenter',()=>{
+    clearInterval(rotation);
+  });
+  container.addEventListener('mouseleave',autoplay);
+
  
